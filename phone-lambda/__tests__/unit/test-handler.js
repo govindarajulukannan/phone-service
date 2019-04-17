@@ -78,4 +78,24 @@ describe('Phone Service Tests', function () {
         expect(JSON.stringify(response)).to.be.equal(JSON.stringify(forbiddenResponse));
     });
 
+    it('verifies forbidden request with missing parameters', async () => {
+        eventTest.pathParameters = undefined;
+
+        let forbiddenResponse = {
+            "error": {
+                "statusCode": "400",
+                "message": "Request not valid"
+            }
+        };
+        const result = await app.lambdaHandler(eventTest);
+
+        expect(result).to.be.an('object');
+        expect(result.statusCode).to.equal(400);
+        expect(result.body).to.be.an('string');
+
+        let response = JSON.parse(result.body);
+        expect(response).to.be.an('object');
+        expect(JSON.stringify(response)).to.be.equal(JSON.stringify(forbiddenResponse));
+    });
+
 });
