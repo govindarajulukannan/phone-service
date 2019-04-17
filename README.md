@@ -85,11 +85,11 @@ Used `mocha` and `jest` for testing code and coverage, it is already added in `p
 cd phone-lambda
 yarn install
 yarn test
-yarn test-mocha
+yarn test-cov
 ```
 
 ```
-yarn test will return coverage details of code base.
+yarn test-cov will return coverage details of code base.
 
 SAM Template is not updated due to time constraints. 
 Template can be used to create teh above API Design Implementation.
