@@ -46,7 +46,15 @@ exports.lambdaHandler = async (event) => {
         }
     } catch (err) {
         console.log(err);
-        return err;
+        response = {
+            'statusCode': 400,
+            'body': JSON.stringify({ "error": {
+                    "statusCode": "400",
+                    "message": "Request not valid"
+                }
+            })
+        };
+        return response;
     }
     console.log('Response :'+JSON.stringify(response));
     return response
