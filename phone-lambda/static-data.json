@@ -1,0 +1,92 @@
+{
+  "customers": {
+    "customerId_1": {
+      "phones": {
+        "phId_1": {
+          "phoneId": "phId_1",
+          "phoneType": "mobile",
+          "phoneNumber": "0444444444",
+          "isActivated": true
+        },
+        "phId_2": {
+          "phoneId": "phId_2",
+          "phoneType": "work",
+          "phoneNumber": "0301231213",
+          "isActivated": false
+        },
+        "phId_3": {
+          "phoneId": "phId_3",
+          "phoneType": "home",
+          "phoneNumber": "0201231213",
+          "isActivated": false
+        }
+      }
+    },
+    "customerId_2": {
+      "phones": {
+        "phId_1": {
+          "phoneId": "phId_1",
+          "phoneType": "mobile",
+          "phoneNumber": "0444444444",
+          "isActivated": true
+        },
+        "phId_2": {
+          "phoneId": "phId_2",
+          "phoneType": "work",
+          "phoneNumber": "0301231213",
+          "isActivated": false
+        },
+        "phId_3": {
+          "phoneId": "phId_3",
+          "phoneType": "home",
+          "phoneNumber": "0201231213",
+          "isActivated": false
+        }
+      }
+    },
+    "customerId_3": {
+      "phones": {
+        "phId_1": {
+          "phoneId": "phId_1",
+          "phoneType": "mobile",
+          "phoneNumber": "0444444444",
+          "isActivated": true
+        },
+        "phId_2": {
+          "phoneId": "phId_2",
+          "phoneType": "work",
+          "phoneNumber": "0301231213",
+          "isActivated": false
+        },
+        "phId_3": {
+          "phoneId": "phId_3",
+          "phoneType": "home",
+          "phoneNumber": "0201231213",
+          "isActivated": false
+        }
+      }
+    },
+    "customerId_4": {
+      "phones": {
+        "phId_1": {
+          "phoneId": "phId_1",
+          "phoneType": "mobile",
+          "phoneNumber": "0444444444",
+          "isActivated": true
+        },
+        "phId_2": {
+          "phoneId": "phId_2",
+          "phoneType": "work",
+          "phoneNumber": "0301231213",
+          "isActivated": false
+        },
+        "phId_3": {
+          "phoneId": "phId_3",
+          "phoneType": "home",
+          "phoneNumber": "0201231213",
+          "isActivated": false
+        }
+      }
+    }
+  }
+}

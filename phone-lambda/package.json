@@ -1,0 +1,49 @@
+{
+  "name": "phone_lambda",
+  "version": "1.0.0",
+  "description": "Phone Lambda for NodeJS",
+  "main": "app.js",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "scripts": {
+    "test-mocha": "mocha __tests__/unit/",
+    "test": "NODE_PATH=./node_modules:./ NODE_ENV=test jest --coverage"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "jest": "^24.7.1"
+  },
+  "jest": {
+    "modulePaths": [
+      "<rootDir>",
+      "<rootDir>/node_modules"
+    ],
+    "collectCoverageFrom": [
+      "*.js",
+      "!tests/unit/test_*.js",
+      "!*.json"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 85,
+        "functions": 85,
+        "lines": 85,
+        "statements": 85
+      }
+    },
+    "coverageReporters": [
+      "lcov"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$": "identity-obj-proxy"
+    },
+    "testURL": "http://localhost/"
+  }
+}
