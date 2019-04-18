@@ -4,6 +4,8 @@ const retrieveAllPhonesOfCustomer = require('./src/retrieveAllPhonesOfCustomer')
 const activatePhone =  require('./src/activatePhone');
 
 let response;
+let body;
+let statusCode = 200;
 
 /**
  *
@@ -16,34 +18,33 @@ let response;
  */
 exports.lambdaHandler = async (event) => {
     try {
-        if (event.pathParameters.accountId) {
-            let allCustomersAndPhones = retrieveAllCustomersPhones();
-            response = {
-                'statusCode': 200,
-                'body': JSON.stringify(allCustomersAndPhones)
-            }
-        } else if(event.pathParameters.customerId && event.pathParameters.phoneId) {
-            let phone = activatePhone(event.pathParameters.customerId, event.pathParameters.phoneId);
-            response = {
-                'statusCode': 200,
-                'body': JSON.stringify(phone)
-            }
-        } else if (event.pathParameters.customerId && !event.pathParameters.phoneId) {
-            let customerPhones = retrieveAllPhonesOfCustomer(event.pathParameters.customerId);
-            response = {
-                'statusCode': 200,
-                'body': JSON.stringify(customerPhones)
-            }
-        } else {
-            response = {
-                'statusCode': 403,
-                'body': JSON.stringify({ "error": {
+        let invokeFunction = event.pathParameters.accountId ? 'allCustomersPhones' :
+            event.pathParameters.customerId && event.pathParameters.phoneId ? 'activatePhone' :
+                event.pathParameters.customerId && !event.pathParameters.phoneId ? 'allPhonesOfCustomer': '';
+
+        switch (invokeFunction) {
+            case "allCustomersPhones":
+                body = retrieveAllCustomersPhones();
+                break;
+            case "allPhonesOfCustomer":
+                body = retrieveAllPhonesOfCustomer(event.pathParameters.customerId);
+                break;
+            case "activatePhone":
+                body = activatePhone(event.pathParameters.customerId, event.pathParameters.phoneId);
+                break;
+            default:
+                statusCode = 403;
+                body = {
+                    "error": {
                         "statusCode": "403",
                         "message": "Forbidden request"
                     }
-                })
-            }
+                };
         }
+        response = {
+            'statusCode': statusCode,
+            'body': JSON.stringify(body)
+        };
     } catch (err) {
         console.log(err);
         response = {
